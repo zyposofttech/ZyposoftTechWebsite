@@ -83,9 +83,9 @@ export async function POST(req: Request) {
       );
     }
 
-    const host = process.env.ZOHO_SMTP_HOST || "smtppro.zoho.com";
-    const port = Number(process.env.ZOHO_SMTP_PORT || 465);
-    const secure = String(process.env.ZOHO_SMTP_SECURE || "true") === "true";
+    const host = process.env.ZOHO_SMTP_HOST;
+    const port = Number(process.env.ZOHO_SMTP_PORT);
+    const secure = String(process.env.ZOHO_SMTP_SECURE) === "true";
 
     const user = process.env.ZOHO_SMTP_USER;
     const pass = process.env.ZOHO_SMTP_PASS;
