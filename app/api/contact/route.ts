@@ -171,13 +171,13 @@ export async function POST(req: Request) {
       replyTo: email,
     });
 
-    // Optional: send acknowledgement to visitor (uncomment if you want)
-    // await transporter.sendMail({
-    //   from: `"${fromName}" <${user}>`,
-    //   to: email,
-    //   subject: "We received your message — ZypoSoft",
-    //   text: `Hi ${name},\n\nThanks for contacting ZypoSoft. We received your message and will respond shortly.\n\n— ZypoSoft`,
-    // });
+    // Send confirmation to user
+    await transporter.sendMail({
+      from: `"${fromName}" <${user}>`,
+      to: email,
+      subject: "We received your message ZypoSoft",
+      text: `Hi ${name},\n\nThanks for contacting ZypoSoft. We received your message and will respond shortly.\n\n ZypoSoft`,
+    });
 
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (err: any) {
